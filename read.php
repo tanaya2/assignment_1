@@ -29,30 +29,9 @@ if (isset($_POST['submit'])) {
       <div class="twelve columns" >
         <h4>Find an Entry</h4>
       
- <!--- <form>
-  <div class="row">
-    <div class="three columns">
-      <label for="date"><h6>Date</h6></label>
-      <input class="u-full-width" type="text">
-    </div> 
-    
-      <div class="row">
-    <div class="three columns">
-      <label for="height"><h6>Todays Mood</h6></label>
-      <input class="u-full-width" type="text">
-    </div> 
-          <div class="row">
-    <div class="three columns">
-        <label for="watered"><h6>Todays Activities</h6></label>
-      <input class="u-full-width" type="text">
-    </div> 
-              <div class="row">
-    <div class="three columns">
-        <label for="notes"><h6>Tomorrows Goal</h6></label>
-      <input class="u-full-width" type="text">
-    </div> --->
 
-<form method="post">
+
+<!-- <form method="post">
     <label for="planttype"><h6>Plant Type</h6></label>
     <input type="text" name="date" id="date">
 
@@ -65,7 +44,7 @@ if (isset($_POST['submit'])) {
     <label for="notes">Notes</label>
     <input type="text" name="notes" id="notes">
 
-    <input type="submit" name="submit" value="Submit">        
+    <input type="submit" name="submit" value="Submit"> -->       
 <?php  
     if (isset($_POST['submit'])) {
         if ($result && $statement->rowCount() > 0) { ?>

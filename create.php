@@ -5,22 +5,19 @@ if (isset($_POST['submit'])) {
 	try {
         $connection = new PDO($dsn, $username, $password, $options);
 		
-        $new_entry = array( 
+   // SECOND: Get the contents of the form and store it in an array
+        $new_work = array( 
             "planttype" => $_POST['planttype'], 
             "height" => $_POST['height'],
             "watered" => $_POST['watered'],
             "notes" => $_POST['notes'], 
         );
         
-        $sql = "INSERT INTO entries (
-        planttype, 
-        height, 
-        watered, 
-        notes
-        ) VALUES (:planttype, :height, :watered, :notes)";        
+        $sql = "INSERT INTO entries (planttype, height, watered, notes) VALUES (:planttype, :height, :watered, :notes)";        
         
         $statement = $connection->prepare($sql);
-        $statement->execute($new_entry);
+        $statement->execute($submit);
+        
 	} catch(PDOException $error) {
 		echo $sql . "<br>" . $error->getMessage();
 	}	
