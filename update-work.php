@@ -1,74 +1,55 @@
 <?php 
-    // include the config file that we created last week
     require "../config.php";
     require "common.php";
-    // run when submit button is clicked
     if (isset($_POST['submit'])) {
         try {
             $connection = new PDO($dsn, $username, $password, $options);  
             
-            //grab elements from form and set as varaible
             $work =[
-              "id"         => $_POST['id'],
-              "artistname" => $_POST['artistname'],
-              "worktitle"  => $_POST['worktitle'],
-              "workdate"   => $_POST['workdate'],
-              "worktype"   => $_POST['worktype'],
-              "date"   => $_POST['date'],
+            "id"        => $_POST['id'],
+            "planttype" => $_POST['planttype'],
+            "height"    => $_POST['height'],
+            "height"    => $_POST['height'],
+            "notes"     => $_POST['notes'],
             ];
             
-            // create SQL statement
-            $sql = "UPDATE `works` 
+            $sql = "UPDATE `entries` 
                     SET id = :id, 
-                        artistname = :artistname, 
-                        worktitle = :worktitle, 
-                        workdate = :workdate, 
-                        worktype = :worktype, 
-                        date = :date 
+                        planttype = :planttype, 
+                        height = :height, 
+                        watered = :watered, 
+                        notes = :notes, 
                     WHERE id = :id";
-            //prepare sql statement
+            
             $statement = $connection->prepare($sql);
             
-            //execute sql statement
             $statement->execute($work);
         } catch(PDOException $error) {
             echo $sql . "<br>" . $error->getMessage();
         }
     }
-    // GET data from DB
-    //simple if/else statement to check if the id is available
-    if (isset($_GET['id'])) {
-        //yes the id exists 
+    if (isset($_GET['id'])) { 
         
         try {
-            // standard db connection
             $connection = new PDO($dsn, $username, $password, $options);
             
-            // set if as variable
             $id = $_GET['id'];
             
-            //select statement to get the right data
-            $sql = "SELECT * FROM works WHERE id = :id";
+            $sql = "SELECT * FROM entries WHERE id = :id";
             
-            // prepare the connection
             $statement = $connection->prepare($sql);
             
-            //bind the id to the PDO id
             $statement->bindValue(':id', $id);
             
-            // now execute the statement
             $statement->execute();
             
-            // attach the sql statement to the new work variable so we can access it in the form
             $work = $statement->fetch(PDO::FETCH_ASSOC);
             
         } catch(PDOExcpetion $error) {
             echo $sql . "<br>" . $error->getMessage();
         }
     } else {
-        // no id, show error
         echo "No id - something went wrong";
-        //exit;
     };
 ?>
 
@@ -78,27 +59,24 @@
 	<p>Work successfully updated.</p>
 <?php endif; ?>
 
-<h2>Edit a work</h2>
+<h2>Edit an Entry</h2>
 
 <form method="post">
     
     <label for="id">ID</label>
     <input type="text" name="id" id="id" value="<?php echo escape($work['id']); ?>" >
     
-    <label for="artistname">Artist Name</label>
-    <input type="text" name="artistname" id="artistname" value="<?php echo escape($work['artistname']); ?>">
+    <label for="planttype">Plant Type</label>
+    <input type="text" name="planttype" id="planttype" value="<?php echo escape($work['planttype']); ?>">
 
-    <label for="worktitle">Work Title</label>
-    <input type="text" name="worktitle" id="worktitle" value="<?php echo escape($work['worktitle']); ?>">
+    <label for="height">HHeight</label>
+    <input type="text" name="height" id="height" value="<?php echo escape($work['height']); ?>">
 
-    <label for="workdate">Work Date</label>
-    <input type="text" name="workdate" id="workdate" value="<?php echo escape($work['workdate']); ?>">
+    <label for="watered">Watered</label>
+    <input type="text" name="watered" id="watered" value="<?php echo escape($work['watered']); ?>">
 
-    <label for="worktype">Work Type</label>
-    <input type="text" name="worktype" id="worktype" value="<?php echo escape($work['worktype']); ?>">
-    
-    <label for="date">Work Date</label>
-    <input type="text" name="date" id="date" value="<?php echo escape($work['date']); ?>">
+    <label for="notes">Notes</label>
+    <input type="text" name="notes" id="notes" value="<?php echo escape($work['notes']); ?>">
 
     <input type="submit" name="submit" value="Save">
 

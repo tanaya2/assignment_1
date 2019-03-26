@@ -1,31 +1,27 @@
 <?php 
-// this code will only execute after the submit button is clicked
+
 if (isset($_POST['submit'])) {
-	
-    // include the config file that we created before
-    require "../config.php"; 
-    
-    // this is called a try/catch statement 
+    require "../config.php";  
 	try {
-        // FIRST: Connect to the database
         $connection = new PDO($dsn, $username, $password, $options);
 		
-        // SECOND: Get the contents of the form and store it in an array
-        $new_work = array( 
-            "artistname" => $_POST['artistname'], 
-            "worktitle" => $_POST['worktitle'],
-            "workdate" => $_POST['workdate'],
-            "worktype" => $_POST['worktype'], 
+        $new_entry = array( 
+            "planttype" => $_POST['planttype'], 
+            "height" => $_POST['height'],
+            "watered" => $_POST['watered'],
+            "notes" => $_POST['notes'], 
         );
         
-        // THIRD: Turn the array into a SQL statement
-        $sql = "INSERT INTO works (artistname, worktitle, workdate, worktype) VALUES (:artistname, :worktitle, :workdate, :worktype)";        
+        $sql = "INSERT INTO entries (
+        planttype, 
+        height, 
+        watered, 
+        notes
+        ) VALUES (:planttype, :height, :watered, :notes)";        
         
-        // FOURTH: Now write the SQL to the database
         $statement = $connection->prepare($sql);
-        $statement->execute($new_work);
+        $statement->execute($new_entry);
 	} catch(PDOException $error) {
-        // if there is an error, tell us what it is
 		echo $sql . "<br>" . $error->getMessage();
 	}	
 }
@@ -34,26 +30,26 @@ if (isset($_POST['submit'])) {
 
 <?php include "templates/header.php"; ?>
 
-<h2>Add a work</h2>
+<h2>Add an Entry</h2>
 
 <?php if (isset($_POST['submit']) && $statement) { ?>
-<p>Work successfully added.</p>
+<p>Entry successfully added.</p>
 <?php } ?>
 
-<!--form to collect data for each artwork-->
+<!--form to collect data for each entry-->
 
 <form method="post">
-    <label for="artistname">Artist Name</label>
-    <input type="text" name="artistname" id="artistname">
+    <label for="planttype">Plant Type</label>
+    <input type="text" name="planttype" id="date">
 
-    <label for="worktitle">Work Title</label>
-    <input type="text" name="worktitle" id="worktitle">
+    <label for="height">Height</label>
+    <input type="text" name="height" id="height">
 
-    <label for="workdate">Work Date</label>
-    <input type="text" name="workdate" id="workdate">
+    <label for="watered">Watered</label>
+    <input type="text" name="watered" id="watered">
 
-    <label for="worktype">Work Type</label>
-    <input type="text" name="worktype" id="worktype">
+    <label for="notes">Notes</label>
+    <input type="text" name="notes" id="notes">
 
     <input type="submit" name="submit" value="Submit">
 
