@@ -5,7 +5,7 @@
 	try {
         $connection = new PDO($dsn, $username, $password, $options);
 		
-        $sql = "SELECT * FROM entries";
+        $sql = "SELECT * FROM plants";
         
         $statement = $connection->prepare($sql);
         $statement->execute();
@@ -17,7 +17,7 @@
 	}	
 ?>
 
-<?php include "templates/header.php"; ?>
+<?php include "templates/header.php"; ?><div class="container"><div class="row">
 
 
 <h2>Results</h2>
@@ -42,4 +42,4 @@
 
 
 
-<?php include "templates/footer.php"; ?>
+</div></div><?php include "templates/footer.php"; ?>

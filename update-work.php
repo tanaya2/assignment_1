@@ -13,7 +13,7 @@
             "notes"     => $_POST['notes'],
             ];
             
-            $sql = "UPDATE `entries` 
+            $sql = "UPDATE `plants` 
                     SET id = :id, 
                         planttype = :planttype, 
                         height = :height, 
@@ -35,7 +35,7 @@
             
             $id = $_GET['id'];
             
-            $sql = "SELECT * FROM entries WHERE id = :id";
+            $sql = "SELECT * FROM plants WHERE id = :id";
             
             $statement = $connection->prepare($sql);
             
@@ -53,7 +53,7 @@
     };
 ?>
 
-<?php include "templates/header.php"; ?>
+<?php include "templates/header.php"; ?><div class="container"><div class="row">
 
 <?php if (isset($_POST['submit']) && $statement) : ?>
 	<p>Work successfully updated.</p>
@@ -86,4 +86,4 @@
 
 
 
-<?php include "templates/footer.php"; ?>
+</div></div><?php include "templates/footer.php"; ?>

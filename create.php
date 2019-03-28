@@ -6,17 +6,17 @@ if (isset($_POST['submit'])) {
         $connection = new PDO($dsn, $username, $password, $options);
 		
    // SECOND: Get the contents of the form and store it in an array
-        $new_work = array( 
+        $new_plant = array( 
             "planttype" => $_POST['planttype'], 
             "height" => $_POST['height'],
             "watered" => $_POST['watered'],
             "notes" => $_POST['notes'], 
         );
         
-        $sql = "INSERT INTO entries (planttype, height, watered, notes) VALUES (:planttype, :height, :watered, :notes)";        
+        $sql = "INSERT INTO plants (planttype, height, watered, notes) VALUES (:planttype, :height, :watered, :notes)";        
         
         $statement = $connection->prepare($sql);
-        $statement->execute($submit);
+        $statement->execute($new_plant);
         
 	} catch(PDOException $error) {
 		echo $sql . "<br>" . $error->getMessage();
@@ -25,8 +25,10 @@ if (isset($_POST['submit'])) {
 ?>
 
 
-<?php include "templates/header.php"; ?>
+<?php include "templates/header.php"; ?><div class="container"><div class="row">
 
+
+    
 <h2>Add an Entry</h2>
 
 <?php if (isset($_POST['submit']) && $statement) { ?>
@@ -51,5 +53,7 @@ if (isset($_POST['submit'])) {
     <input type="submit" name="submit" value="Submit">
 
 </form>
+        </div>
+</div>
 
 <?php include "templates/footer.php"; ?>

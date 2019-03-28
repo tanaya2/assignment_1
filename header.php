@@ -21,6 +21,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="./assets/css/normalize.css">
   <link rel="stylesheet" href="./assets/css/skeleton.css">
+  <link rel="stylesheet" href="./assets/css/styles.css">
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -28,18 +29,18 @@
 
 </head>
 <body>
+    <div class="container">
     <div class="row">
       <div class="three-thirds column" >
          <h1><strong>Plant Tracker</strong><h1>
    
-   <div>          
+             
     <ul>
-        <h6>
-        <a class="button button-primary" href="create.php">Add New Entry</a>
-        <a class="button button-primary" href="read.php">Find an Entry</a>
-        <a class="button button-primary" href="update.php">Update an Entry</a>
-        <a class="button button-primary" href="delete.php">Delete an Entry</a>
-        </h6>
+        <li><a class="button button-primary" href="create.php">Add New Entry</a></li>
+        <li><a class="button button-primary" href="read.php">Find an Entry</a></li>
+        <li><a class="button button-primary" href="update.php">Update an Entry</a></li>
+        <li><a class="button button-primary" href="delete.php">Delete an Entry</a></li>
     </ul>
           
-    </div>
+    </div></div>
+        </div>

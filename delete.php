@@ -7,7 +7,7 @@
             
             $id = $_GET["id"];
             
-            $sql = "DELETE FROM entries WHERE id = :id";
+            $sql = "DELETE FROM plants WHERE id = :id";
             
             $statement = $connection->prepare($sql);
             
@@ -25,7 +25,7 @@
     try {
         $connection = new PDO($dsn, $username, $password, $options);
 		
-        $sql = "SELECT * FROM entries";
+        $sql = "SELECT * FROM plants";
         
         $statement = $connection->prepare($sql);
         $statement->execute();
@@ -36,7 +36,7 @@
     }
 ?>
 
-<?php include "templates/header.php"; ?>
+<?php include "templates/header.php"; ?><div class="container"><div class="row">
 
 
 <h2>Delete an Entry</h2>
@@ -63,4 +63,4 @@
 
 
 
-<?php include "templates/footer.php"; ?>
+</div></div><?php include "templates/footer.php"; ?>

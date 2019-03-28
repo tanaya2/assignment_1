@@ -1,4 +1,4 @@
-<?php include "templates/header.php"; ?>
+<?php include "templates/header.php"; ?><div class="container"><div class="row">
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -11,4 +11,4 @@
     </div>
   </div>
 
-<?php include "templates/footer.php"; ?>
+</div></div><?php include "templates/footer.php"; ?>

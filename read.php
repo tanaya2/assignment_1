@@ -7,7 +7,7 @@ if (isset($_POST['submit'])) {
 	try {
         $connection = new PDO($dsn, $username, $password, $options);
 		
-        $sql = "SELECT * FROM entries";
+        $sql = "SELECT * FROM plants";
         
         $statement = $connection->prepare($sql);
         $statement->execute();
@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
-<?php include "templates/header.php"; ?>
+<?php include "templates/header.php"; ?><div class="container"><div class="row">
 
 
   <!-- Primary Page Layout
@@ -88,4 +88,4 @@ if (isset($_POST['submit'])) {
 
 
 
-<?php include "templates/footer.php"; ?>
+</div></div><?php include "templates/footer.php"; ?>
