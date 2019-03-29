@@ -4,8 +4,7 @@ if (isset($_POST['submit'])) {
     require "../config.php";  
 	try {
         $connection = new PDO($dsn, $username, $password, $options);
-		
-   // SECOND: Get the contents of the form and store it in an array
+	
         $new_plant = array( 
             "planttype" => $_POST['planttype'], 
             "height" => $_POST['height'],
@@ -35,8 +34,6 @@ if (isset($_POST['submit'])) {
     
     <h5><solid><font color="whitesmoke">Add an Entry</font></solid></h5>
 
-<!--form to collect data for each entry-->
-
 <form method="post">
     <label for="planttype"><font color="whitesmoke">Plant Type</font></label>
     <input type="text" name="planttype" id="date">
@@ -50,11 +47,10 @@ if (isset($_POST['submit'])) {
     <label for="notes"><font color="whitesmoke">Notes</font></label>
     <input type="text" name="notes" id="notes">
 
-    <input type="submit" name="submit" value="Submit">
-    
+    <input type="submit" name="submit" value="Submit">   
     
     <?php if (isset($_POST['submit']) && $statement) { ?>
-    <p><font color="white">Entry successfully added.</font></p>
+    <p><font color="whitesmoke">Entry successfully added.</font></p>
 <?php } ?>
 
 </form>

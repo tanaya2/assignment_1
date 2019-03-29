@@ -1,16 +1,18 @@
 <?php 
     require "../config.php";
     require "common.php";
+
     if (isset($_POST['submit'])) {
         try {
             $connection = new PDO($dsn, $username, $password, $options);  
             
             $work =[
-            "id"        => $_POST['id'],
-            "planttype" => $_POST['planttype'],
-            "height"    => $_POST['height'],
-            "height"    => $_POST['height'],
-            "notes"     => $_POST['notes'],
+              "id"         => $_POST['id'],
+              "planttype" => $_POST['planttype'],
+              "height"  => $_POST['height'],
+              "watered"   => $_POST['watered'],
+              "notes"   => $_POST['notes'],
+              "date"   => $_POST['date'],
             ];
             
             $sql = "UPDATE `plants` 
@@ -19,51 +21,55 @@
                         height = :height, 
                         watered = :watered, 
                         notes = :notes, 
+                        date = :date 
                     WHERE id = :id";
-            
+
             $statement = $connection->prepare($sql);
-            
+
             $statement->execute($work);
         } catch(PDOException $error) {
             echo $sql . "<br>" . $error->getMessage();
         }
     }
-    if (isset($_GET['id'])) { 
-        
+
+    if (isset($_GET['id'])) {
+  
         try {
+
             $connection = new PDO($dsn, $username, $password, $options);
             
             $id = $_GET['id'];
             
             $sql = "SELECT * FROM plants WHERE id = :id";
-            
+
             $statement = $connection->prepare($sql);
-            
+
             $statement->bindValue(':id', $id);
-            
+
             $statement->execute();
-            
+
             $work = $statement->fetch(PDO::FETCH_ASSOC);
             
         } catch(PDOExcpetion $error) {
             echo $sql . "<br>" . $error->getMessage();
         }
     } else {
+        
         echo "No id - something went wrong";
     };
 ?>
 
 <?php include "templates/header.php"; ?><div class="container"><div class="row">
-    
-     <style>
+
+    <style>
         body { 
                 background-image: url("assets/images/ferntwo.jpg");
-
+                font color: whitesmoke;
         }
     </style>
 
 <?php if (isset($_POST['submit']) && $statement) : ?>
-	<p>Entry successfully updated.</p>
+    <p><font color="whitesmoke">Entry successfully updated.</font></p>
 <?php endif; ?>
 
     <h5><font color="whitesmoke">Edit an Entry</font></h5>
@@ -89,8 +95,4 @@
 
 </form>
 
-
-
-
-
-</div></div><?php include "templates/footer.php"; ?>
+<?php include "templates/footer.php"; ?>

@@ -52,39 +52,31 @@ if (isset($_POST['submit'])) {
 <?php foreach($result as $row) { ?>
 
 <p><font color="whitesmoke">
-    ID:
-    <?php echo $row['id']; ?><br> Plant Type:
-    <?php echo $row['planttype']; ?><br> Height:
-    <?php echo $row['height']; ?><br> Watered:
-    <?php echo $row['watered']; ?><br> Notes:
-    <?php echo $row['notes']; ?><br> 
+    ID: <?php echo $row['id']; ?><br> 
+    
+    Plant Type: <?php echo $row['planttype']; ?><br> 
+    
+    Height: <?php echo $row['height']; ?><br> 
+    
+    Watered: <?php echo $row['watered']; ?><br> 
+    
+    Notes: <?php echo $row['notes']; ?><br> 
     </font></p>
 <?php  
         ?>
-
 <hr>
 <?php }; 
         }; 
     }; 
 ?>
 
-
-
 <form method="post">
 <font color="whitesmoke">
     <input type="submit" name="submit" value="View All">
     </font>
-</form>
-        
-        
-        
-        
-        
-        
+</form>     
         </div>
     </div>
   </div>
-
-
 
 </div></div><?php include "templates/footer.php"; ?>

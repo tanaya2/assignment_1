@@ -22,7 +22,6 @@
     <style>
         body { 
                 background-image: url("assets/images/ferntwo.jpg");
-
         }
     </style>
     
@@ -31,21 +30,23 @@
 <?php foreach($result as $row) { ?>
 
 <p><font color="whitesmoke">
-    ID:
-    <?php echo $row['id']; ?><br> Plant Type:
-    <?php echo $row['planttype']; ?><br> Height:
-    <?php echo $row['height']; ?><br> Watered:
-    <?php echo $row['watered']; ?><br> Notes:
-    <?php echo $row['notes']; ?><br>
-    <a href='update-work.php?id=<?php echo $row['id']; ?>'>Edit</a>
+    
+    ID: <?php echo $row['id']; ?><br> 
+    
+    Plant Type: <?php echo $row['planttype']; ?><br> 
+    
+    Height: <?php echo $row['height']; ?><br>
+    
+    Watered: <?php echo $row['watered']; ?><br>
+    
+    Notes: <?php echo $row['notes']; ?><br>
+    
     </font></p>
+    
+    <a href='update-work.php'.php?id=<?php echo $row['id']; ?>'>Edit</a>
 
 <hr>
 <?php };
 ?>
-
-
-
-
 
 </div></div><?php include "templates/footer.php"; ?>
