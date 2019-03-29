@@ -27,30 +27,35 @@ if (isset($_POST['submit'])) {
 
 <?php include "templates/header.php"; ?><div class="container"><div class="row">
 
-
+    <style>
+        body { 
+                background-image: url("assets/images/ferntwo.jpg");
+        }
+    </style>
     
-<h2>Add an Entry</h2>
-
-<?php if (isset($_POST['submit']) && $statement) { ?>
-<p>Entry successfully added.</p>
-<?php } ?>
+    <h5><solid><font color="whitesmoke">Add an Entry</font></solid></h5>
 
 <!--form to collect data for each entry-->
 
 <form method="post">
-    <label for="planttype">Plant Type</label>
+    <label for="planttype"><font color="whitesmoke">Plant Type</font></label>
     <input type="text" name="planttype" id="date">
-
-    <label for="height">Height</label>
+    
+    <label for="height"><font color="whitesmoke">Height</font></label>
     <input type="text" name="height" id="height">
 
-    <label for="watered">Watered</label>
+    <label for="watered"><font color="whitesmoke">Watered</font></label>
     <input type="text" name="watered" id="watered">
 
-    <label for="notes">Notes</label>
+    <label for="notes"><font color="whitesmoke">Notes</font></label>
     <input type="text" name="notes" id="notes">
 
     <input type="submit" name="submit" value="Submit">
+    
+    
+    <?php if (isset($_POST['submit']) && $statement) { ?>
+    <p><font color="white">Entry successfully added.</font></p>
+<?php } ?>
 
 </form>
         </div>

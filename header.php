@@ -2,44 +2,35 @@
 <html lang="en">
 <head>
 
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta charset="utf-8">
+ 
+    
+    <meta charset="utf-8">
     <title>Plant Tracker</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
 
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link href="http://fonts.googleapis.com/css?family=Monstserrat:400,300,600" rel="stylesheet" type="text/css">
 
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
   <link rel="stylesheet" href="./assets/css/normalize.css">
   <link rel="stylesheet" href="./assets/css/skeleton.css">
   <link rel="stylesheet" href="./assets/css/styles.css">
 
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="./assets/images/favicon.png">
-
 </head>
 <body>
+    
+    <STYLE>A {text-decoration: none;} </STYLE>
     <div class="container">
     <div class="row">
-      <div class="three-thirds column" >
-         <h1><strong>Plant Tracker</strong><h1>
-   
-             
+         <a href="index.php">
+       
+        <h1><strong><font color="whitesmoke"></font></strong><h1>
+        <h1><strong><font color="whitesmoke">Plant Tracker</font></strong><h1>
     <ul>
-        <li><a class="button button-primary" href="create.php">Add New Entry</a></li>
-        <li><a class="button button-primary" href="read.php">Find an Entry</a></li>
-        <li><a class="button button-primary" href="update.php">Update an Entry</a></li>
-        <li><a class="button button-primary" href="delete.php">Delete an Entry</a></li>
+        <li><a class="button primary" href="create.php"><font color="whitesmoke">Add New Entry</font></a></li>
+        <li><a class="button primary" href="read.php"><font color="whitesmoke">Find an Entry</font></a></li>
+        <li><a class="button primary" href="update.php"><font color="whitesmoke">Update an Entry</font></a></li>
+        <li><a class="button primary" href="delete.php"><font color="whitesmoke">Delete an Entry</font></a></li>
     </ul>
           
     </div></div>

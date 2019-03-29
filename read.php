@@ -21,45 +21,44 @@ if (isset($_POST['submit'])) {
 
 <?php include "templates/header.php"; ?><div class="container"><div class="row">
 
-
-  <!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div class="container">
-    <div class="row">
-      <div class="twelve columns" >
-        <h4>Find an Entry</h4>
-      
-
-
-<!-- <form method="post">
-    <label for="planttype"><h6>Plant Type</h6></label>
-    <input type="text" name="date" id="date">
-
-    <label for="height">Height</label>
+        <style>
+        body { 
+                background-image: url("assets/images/ferntwo.jpg");
+                font color="whitesmoke";
+        }
+    </style>
+    <h5><solid><font color="whitesmoke">Find an Entry</font></solid></h5>
+    
+    <form method="post">
+    <label for="planttype"><font color="whitesmoke">Plant Type</font></label>
+    <input type="text" name="planttype" id="date">
+    
+    <label for="height"><font color="whitesmoke">Height</font></label>
     <input type="text" name="height" id="height">
 
-    <label for="watered">Watered</label>
-    <input type="text" name="todaysactivites" id="watered">
+    <label for="watered"><font color="whitesmoke">Watered</font></label>
+    <input type="text" name="watered" id="watered">
 
-    <label for="notes">Notes</label>
-    <input type="text" name="notes" id="notes">
-
-    <input type="submit" name="submit" value="Submit"> -->       
+    <label for="notes"><font color="whitesmoke">Notes</font></label>
+    <input type="text" name="notes" id="notes"> 
+        
+     <input type="submit" name="submit" value="Submit">
+        
 <?php  
     if (isset($_POST['submit'])) {
         if ($result && $statement->rowCount() > 0) { ?>
-<h2>Results</h2>
+        <h5><font color="whitesmoke">Results</font></h5>
 
 <?php foreach($result as $row) { ?>
 
-<p>
+<p><font color="whitesmoke">
     ID:
-    <?php echo $row['id']; ?><br> ID:
-    <?php echo $row['planttype']; ?><br> Plant Tpye:
-    <?php echo $row['height']; ?><br> Height:
-    <?php echo $row['watered']; ?><br> Watered:
-    <?php echo $row['notes']; ?><br> Notes:
-</p>
+    <?php echo $row['id']; ?><br> Plant Type:
+    <?php echo $row['planttype']; ?><br> Height:
+    <?php echo $row['height']; ?><br> Watered:
+    <?php echo $row['watered']; ?><br> Notes:
+    <?php echo $row['notes']; ?><br> 
+    </font></p>
 <?php  
         ?>
 
@@ -72,9 +71,9 @@ if (isset($_POST['submit'])) {
 
 
 <form method="post">
-
-    <input type="submit" name="submit" value="View all">
-
+<font color="whitesmoke">
+    <input type="submit" name="submit" value="View All">
+    </font>
 </form>
         
         

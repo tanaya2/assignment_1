@@ -15,7 +15,7 @@
             
             $statement->execute();
 
-            $success = "Entry successfully deleted";
+            $success = "Entry Successfully Deleted";
         } catch(PDOException $error) {
             
             echo $sql . "<br>" . $error->getMessage();
@@ -38,8 +38,13 @@
 
 <?php include "templates/header.php"; ?><div class="container"><div class="row">
 
+        <style>
+        body { 
+                background-image: url("assets/images/ferntwo.jpg");
+        }
+    </style>
 
-<h2>Delete an Entry</h2>
+    <h5><solid><font color="whitesmoke">Delete an Entry</font></solid></h5>
 
 <?php if ($success) echo $success; ?>
 
@@ -47,15 +52,17 @@
 <?php foreach($result as $row) { ?>
 
 <p>
-    ID:
-    <?php echo escape($row['id']); ?>
-    Date:
-    <?php echo escape($row['planttype']); ?><br> Plant Type:
-    <?php echo $row['height']; ?><br> Height:
-    <?php echo $row['watered']; ?><br> Notes:
-    <?php echo $row['notes']; ?>
+<font color="whitesmoke">
+    ID:<?php echo escape($row['id']); ?><br>
+    Plant Type: <?php echo escape($row['planttype']); ?><br> 
+    Height: <?php echo $row['height']; ?><br> 
+    Watered: <?php echo $row['watered']; ?><br> 
+    Notes: <?php echo $row['notes']; 
+    ?><br>
     <a href='delete.php?id=<?php echo $row['id']; ?>'>Delete</a>
-</p>
+    
+</font>
+    </p>
 
 <hr>
 <?php }; 

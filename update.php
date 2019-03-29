@@ -19,20 +19,26 @@
 
 <?php include "templates/header.php"; ?><div class="container"><div class="row">
 
+    <style>
+        body { 
+                background-image: url("assets/images/ferntwo.jpg");
 
-<h2>Results</h2>
+        }
+    </style>
+    
+    <h5><solid><font color="whitesmoke">Update an Entry</font></solid></h5>
 
 <?php foreach($result as $row) { ?>
 
-<p>
+<p><font color="whitesmoke">
     ID:
-    <?php echo $row['id']; ?><br> ID:
-    <?php echo $row['planttype']; ?><br> Plant Type:
-    <?php echo $row['height']; ?><br> Height:
-    <?php echo $row['watered']; ?><br> Watered:
-    <?php echo $row['notes']; ?><br> Notes:
+    <?php echo $row['id']; ?><br> Plant Type:
+    <?php echo $row['planttype']; ?><br> Height:
+    <?php echo $row['height']; ?><br> Watered:
+    <?php echo $row['watered']; ?><br> Notes:
+    <?php echo $row['notes']; ?><br>
     <a href='update-work.php?id=<?php echo $row['id']; ?>'>Edit</a>
-</p>
+    </font></p>
 
 <hr>
 <?php };

@@ -54,28 +54,35 @@
 ?>
 
 <?php include "templates/header.php"; ?><div class="container"><div class="row">
+    
+     <style>
+        body { 
+                background-image: url("assets/images/ferntwo.jpg");
+
+        }
+    </style>
 
 <?php if (isset($_POST['submit']) && $statement) : ?>
-	<p>Work successfully updated.</p>
+	<p>Entry successfully updated.</p>
 <?php endif; ?>
 
-<h2>Edit an Entry</h2>
+    <h5><font color="whitesmoke">Edit an Entry</font></h5>
 
 <form method="post">
     
-    <label for="id">ID</label>
+    <label for="id"><font color="whitesmoke">ID</font></label>
     <input type="text" name="id" id="id" value="<?php echo escape($work['id']); ?>" >
     
-    <label for="planttype">Plant Type</label>
+    <label for="planttype"><font color="whitesmoke">Plant Type</font></label>
     <input type="text" name="planttype" id="planttype" value="<?php echo escape($work['planttype']); ?>">
 
-    <label for="height">HHeight</label>
+    <label for="height"><font color="whitesmoke">Height</font></label>
     <input type="text" name="height" id="height" value="<?php echo escape($work['height']); ?>">
 
-    <label for="watered">Watered</label>
+    <label for="watered"><font color="whitesmoke">Watered</font></label>
     <input type="text" name="watered" id="watered" value="<?php echo escape($work['watered']); ?>">
 
-    <label for="notes">Notes</label>
+    <label for="notes"><font color="whitesmoke">Notes</font></label>
     <input type="text" name="notes" id="notes" value="<?php echo escape($work['notes']); ?>">
 
     <input type="submit" name="submit" value="Save">
