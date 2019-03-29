@@ -1,6 +1,6 @@
-CREATE DATABASE plant_tracker;
+CREATE DATABASE epiz_23658260_tanaya;
 
-use plant_tracker;
+use epiz_23658260_tanaya;
 
 CREATE TABLE plants (
 	id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
